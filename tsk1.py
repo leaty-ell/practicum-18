@@ -14,8 +14,8 @@ class Dog:
 
 def main():
     """The main fuction of the programm"""
-    small_dog = Dog('Снупи')
-    print(small_dog)
+    dog_name = input("Введите кличку собаки: ")
+    small_dog = Dog(dog_name)
     small_dog.say()
     print('Кличка собаки', small_dog.name)
 
