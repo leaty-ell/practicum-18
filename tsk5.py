@@ -1,3 +1,5 @@
+from typing import Dict, Tuple, Union
+
 class Game:
     """
     A class representing a basketball game.
@@ -8,27 +10,27 @@ class Game:
         score2 (int): Score of the second team.
     """
     
-    def __init__(self, teams):
+    def __init__(self, teams) -> None:
         """Initialize a new Game object."""
         self.teams = teams
         self.score1 = 0  
         self.score2 = 0  
     
-    def ball_thrown(self, command, points):
+    def ball_thrown(self, command, points) -> None:
         """Add points to the specified team."""
         if command == 1:
             self.score1 += points
         elif command == 2:
             self.score2 += points
     
-    def get_score(self):
+    def get_score(self) -> Tuple[int, int]:
         """
         Return the current score of the game. 
         This method returns a tuple containing the scores of both teams.
         """
         return (self.score1, self.score2)
     
-    def get_winner(self):
+    def get_winner(self) -> Union[str, None]:
         """Determine the winner of the game."""
         if self.score1 > self.score2:
             return self.teams['command1']
@@ -38,7 +40,7 @@ class Game:
             return 'Ничья'
 
 
-def main():
+def main() -> None:
     """The main function of the program."""
     game_one = Game({'command1': 'Юта Джаз', 'command2': 'Майами Хит'})
     
