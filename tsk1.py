@@ -1,18 +1,18 @@
 class Dog:
-    def __init__(self, name):
+    def __init__(self, name: str) -> None:
         """Initialize the dog with a name"""
         self.name = name
     
-    def __str__(self):
+    def __str__(self) -> str:
         """Return the dog's name when printed"""
         return self.name
     
-    def say(self):
+    def say(self) -> None:
         """Make the dog bark"""
         print("Гав!")
 
 
-def main():
+def main() -> None:
     """The main fuction of the programm"""
     dog_name = input("Введите кличку собаки: ")
     small_dog = Dog(dog_name)
