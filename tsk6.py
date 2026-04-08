@@ -7,20 +7,20 @@ class Point:
         y (int/float): The y-coordinate of the point.
     """
     
-    def __init__(self, coordinates=(0, 0)):
+    def __init__(self, coordinates=(0, 0)) -> None:
         """Initialize a new Point object."""
         self.x = coordinates[0]
         self.y = coordinates[1]  
     
-    def get_x(self):
+    def get_x(self) -> Union[int, float]:
         """Return the x-coordinate of the point."""
         return self.x
     
-    def get_y(self):
+    def get_y(self) -> Union[int, float]:
         """Return the y-coordinate of the point."""
         return self.y
     
-    def distance(self, other):
+    def distance(self, other) -> Union[int, float]:
         """Calculate the Euclidean distance between this point and another point."""
         dx = self.x - other.x
         dy = self.y - other.y
@@ -28,14 +28,14 @@ class Point:
         
         return distance
     
-    def sum(self, other):
+    def sum(self, other) -> 'Point':
         """Create a new point that is the sum of this point and another point."""
         new_x = self.x + other.x
         new_y = self.y + other.y
         
         return Point((new_x, new_y))
     
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Return a string representation of the Point object. The format is "(x; y)".
         
@@ -44,7 +44,7 @@ class Point:
         """
         return "({}; {})".format(self.x, self.y)
     
-    def __repr__(self):
+    def __repr__(self) -> str:
         """
         Return a string representation for debugging.
 
@@ -54,7 +54,7 @@ class Point:
         return "({}; {})".format(self.x, self.y)
 
 
-def main():
+def main() -> None:
     """The main function of the program."""
 
     p = Point((3, -7))
