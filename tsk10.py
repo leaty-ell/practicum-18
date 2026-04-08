@@ -1,3 +1,5 @@
+from typing import List, Tuple, Union
+
 class Point:
     """
     A class representing a point on a plane.
@@ -7,7 +9,7 @@ class Point:
         y (int/float): The y-coordinate of the point.
     """
     
-    def __init__(self, coordinates=(0, 0)):
+    def __init__(self, coordinates=(0, 0)) -> None:
         """
         Initialize a new Point object.
 
@@ -17,15 +19,15 @@ class Point:
         self.x = coordinates[0]
         self.y = coordinates[1]
     
-    def get_x(self):
+    def get_x(self) -> Union[int, float]:
         """Return the x-coordinate of the point."""
         return self.x
     
-    def get_y(self):
+    def get_y(self) -> Union[int, float]:
         """Return the y-coordinate of the point."""
         return self.y
     
-    def distance(self, other):
+    def distance(self, other) -> Union[int, float]:
         """
         Calculate the Euclidean distance between this point and another point.
         
@@ -40,7 +42,7 @@ class Point:
         distance = (dx**2 + dy**2) ** 0.5
         return distance
     
-    def sum(self, other):
+    def sum(self, other) -> 'Point':
         """
         Create a new point that is the sum of this point and another point.
         
@@ -54,11 +56,11 @@ class Point:
         new_y = self.y + other.y
         return Point((new_x, new_y))
     
-    def __str__(self):
+    def __str__(self) -> str:
         """Return a string representation of the Point object."""
         return "({}; {})".format(self.x, self.y)
     
-    def __repr__(self):
+    def __repr__(self) -> str:
         """Return a string representation for debugging."""
         return "({}; {})".format(self.x, self.y)
 
@@ -73,7 +75,7 @@ class Segment:
         one_intersection (bool): Indicates if the segment intersects exactly one axis.
     """
     
-    def __init__(self, point1, point2):
+    def __init__(self, point1, point2) -> None:
         """
         Initialize a new Segment object.
        
@@ -86,7 +88,7 @@ class Segment:
        
         self.one_intersection = self._check_one_intersection()
     
-    def _check_one_intersection(self):
+    def _check_one_intersection(self) -> bool:
         """
         Check if the segment intersects exactly one coordinate axis.
       
@@ -110,7 +112,7 @@ class Segment:
         
         return intersects_x != intersects_y  
     
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Return a string representation of the Segment object.
         
@@ -128,11 +130,11 @@ class CoordinateSystem:
         segments (list): List of Segment objects on the plane.
     """
     
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize a new CoordinateSystem object."""
         self.segments = []
     
-    def add_segment(self, segment):
+    def add_segment(self, segment) -> None:
         """
         Add a segment to the coordinate system.
         
@@ -141,7 +143,7 @@ class CoordinateSystem:
         """
         self.segments.append(segment)
     
-    def axis_intersection(self):
+    def axis_intersection(self) -> int:
         """
         Count the number of segments that intersect exactly one coordinate axis.
         
@@ -154,7 +156,7 @@ class CoordinateSystem:
                 count += 1
         return count
     
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Return a string representation of all segments.
         
@@ -163,7 +165,7 @@ class CoordinateSystem:
         """
         return str(self.segments)
 
-def main():
+def main() -> None:
     """The main function of the program."""
     p1 = Point((-2, 7))
     print(p1)
