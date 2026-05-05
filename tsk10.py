@@ -8,7 +8,7 @@ class CallLimitExceeded(Exception):
     pass
 
 
-def limit(max_time=5, max_calls=3, period=10):
+def limit(max_time=6, max_calls=4, period=11):
     def decorator(function):
         calls = []
         
@@ -33,7 +33,7 @@ def limit(max_time=5, max_calls=3, period=10):
     return decorator
 
 
-@limit(max_time=2, max_calls=2, period=5)
+@limit(max_time=3, max_calls=3, period=6)
 def slow_function(n):
     time.sleep(n)
     return n * 2
